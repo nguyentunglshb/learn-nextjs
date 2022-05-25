@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { baseUrl } from "../../contants/utils";
+import Image from "next/image";
 
 export async function getServerSideProps({ params }) {
   console.log(params);
@@ -37,9 +38,10 @@ function Product({ product }) {
         />
         <meta property="og:title" content={product.name} />
       </Head>
-      <img
+      <Image
         src={baseUrl + "/attachment/" + product?.listImage[0]?.attachmentKey}
         alt="any"
+        layout="fill"
       />
       <p>{product.name}</p>
     </div>
